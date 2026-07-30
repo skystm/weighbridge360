@@ -24,7 +24,9 @@ module.exports = class WeighBridgeService extends cds.ApplicationService {
         .and(`saldoRestante > 0`)
       if (!contrato) return req.reject(403, 'PLACA_NAO_AUTORIZADA')
 
-      const ticket = await INSERT.into(TicketsPesagem).entries({
+      const ticketId = cds.utils.uuid()
+      await INSERT.into(TicketsPesagem).entries({
+        ID:                  ticketId,
         fazenda_ID:          fazendaId,
         placa,
         fonteIdentificacao_code: fonteIdentificacao,
@@ -37,10 +39,10 @@ module.exports = class WeighBridgeService extends cds.ApplicationService {
         operador_ID:         operadorId
       })
 
-      await this._audit(ticket.ID, 'CHECK_IN', operadorId, null,
+      await this._audit(ticketId, 'CHECK_IN', operadorId, null,
         `AGUARDANDO_TARA | placa=${placa} | fonte=${fonteIdentificacao}`)
 
-      return SELECT.one.from(TicketsPesagem).where({ ID: ticket.ID })
+      return SELECT.one.from(TicketsPesagem).where({ ID: ticketId })
     })
 
     // ─── US-02: Registrar Tara ────────────────────────────────────────────────
@@ -272,6 +274,7 @@ module.exports = class WeighBridgeService extends cds.ApplicationService {
   async _audit(ticketId, acao, operadorId, valorAntes, valorDepois) {
     const { TrilhaAuditoria } = this.entities
     await INSERT.into(TrilhaAuditoria).entries({
+      ID:         cds.utils.uuid(),
       ticket_ID:  ticketId,
       acao,
       operadorId: operadorId || null,
