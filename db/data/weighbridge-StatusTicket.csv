@@ -1,0 +1,8 @@
+code,name
+AGUARDANDO_TARA,Aguardando Tara
+AGUARDANDO_CARGA,Aguardando Carregamento
+AGUARDANDO_BRUTO,Aguardando Peso Bruto
+AGUARDANDO_DOCUMENTO,Aguardando Documentos Fiscais
+CONCLUIDO,Concluído
+DIVERGENCIA,Divergência — Aguardando Aprovação
+PENDENTE_SAP,Pendente Sincronização SAP

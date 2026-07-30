@@ -1,0 +1,4 @@
+ID,nome,codigo,estado,municipio,capacidadeDiaria,thresholdFila,ativa,createdAt,createdBy,modifiedAt,modifiedBy
+f1000001-0000-0000-0000-000000000001,Paiaguás,SLC-PAI,MT,Correntina,50,8,true,2026-01-01T00:00:00.000Z,admin,2026-01-01T00:00:00.000Z,admin
+f1000002-0000-0000-0000-000000000002,Pamplona,SLC-PAM,MS,Rio Brilhante,30,6,true,2026-01-01T00:00:00.000Z,admin,2026-01-01T00:00:00.000Z,admin
+f1000003-0000-0000-0000-000000000003,Planorte,SLC-PLN,MT,Campo Novo do Parecis,40,8,true,2026-01-01T00:00:00.000Z,admin,2026-01-01T00:00:00.000Z,admin
